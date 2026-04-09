@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600;6..96,700&family=Manrope:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+
+@theme inline {
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+}
+
+:root {
+  --background: #f5f5f2;
+  --foreground: #18253d;
+  --card: rgba(255, 255, 255, 0.85);
+  --card-foreground: #18253d;
+  --muted: #eef0f3;
+  --muted-foreground: #60708a;
+  --border: rgba(24, 37, 61, 0.1);
+  --ring: rgba(189, 157, 92, 0.34);
+  --primary: #18253d;
+  --primary-foreground: #ffffff;
+  --secondary: #ffffff;
+  --secondary-foreground: #18253d;
+  --accent: #bd9d5c;
+  --accent-foreground: #ffffff;
+  --font-sans: 'Manrope', sans-serif;
+  --font-display: 'Bodoni Moda', serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(189, 157, 92, 0.12), transparent 26%),
+    linear-gradient(180deg, #fbfbfa 0%, #f3f4f2 50%, #eef1f4 100%);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(24, 37, 61, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(24, 37, 61, 0.03) 1px, transparent 1px);
+  background-size: 76px 76px;
+  mask-image: radial-gradient(circle at center, black 32%, transparent 80%);
+  pointer-events: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*::selection {
+  background: rgba(189, 157, 92, 0.22);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.site-panel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(24, 37, 61, 0.08);
+  border-radius: 2rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(247, 248, 249, 0.94)),
+    rgba(255, 255, 255, 0.84);
+  box-shadow: 0 24px 72px rgba(24, 37, 61, 0.08);
+}
+
+.site-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(189, 157, 92, 0.08), transparent 22%, transparent 78%, rgba(24, 37, 61, 0.06)),
+    linear-gradient(rgba(24, 37, 61, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(24, 37, 61, 0.025) 1px, transparent 1px);
+  background-size: auto, 64px 64px, 64px 64px;
+  pointer-events: none;
+}
+
+.page-shell {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
